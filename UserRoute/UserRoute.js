@@ -1,0 +1,13 @@
+const Router =require("express").Router()
+const userController =require("../UserControlller/UserController")
+Router.post("/signUp", userController.Signup)
+Router.post("/verifiedEmail/:email", userController.VerifiedEmail)
+Router.get("/resendEmail/:email", userController.ResendEmail)
+Router.post("/signIn", userController.signIn)
+Router.post("/update", userController.UpdateUser)
+Router.post("/checkout/:id", userController.CheckOut)
+Router.get("/getdashboard", userController.GetDashboard)
+Router.patch("/addtocart/:id", userController.AddtoCart)
+Router.delete("/deletecart/:id", userController.RemoveCart)
+Router.patch("/minuscart/:id", userController.MinusCart)
+module.exports=Router
