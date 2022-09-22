@@ -13,7 +13,6 @@ const sid=process.env.SID;
 const AUTH_TOKEN=process.env.AUTH_TOKEN
 const SendSmsMessage= async (phonenumber,message,name)=>{
     twilio=twilio(sid,AUTH_TOKEN);
-    console.log("i don land",phonenumber,message,name);
    let res = await twilio.messages.create({
         from:process.env.SENDMESSAGENUMBER,
         to:`+234${phonenumber}`,
@@ -22,7 +21,6 @@ const SendSmsMessage= async (phonenumber,message,name)=>{
         from:${phonenumber}
         message:${message}`,
     }).then(res=>{
-        console.log(res)
         return true
     }
     ).catch((err)=>{
@@ -209,7 +207,6 @@ const GetGoodOne=(req,res,next)=>{
 }
 
 
-
 const SendMessage= async (req,res,next)=>{
     try{
         const {Toggle,fullname,email,message}=req.body
@@ -218,6 +215,7 @@ const SendMessage= async (req,res,next)=>{
         }else{
             let result = await SendSmsMessage(email,message,fullname)
           if(result){
+            console.log("result")
             res.send({message:"message sent", status:true})
           }else{
             res.send({message:"failed", status:false})
