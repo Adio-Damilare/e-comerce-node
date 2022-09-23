@@ -2,8 +2,6 @@ const express =require("express")
 const App =express()
 const bodyParser=require("body-parser")
 const mongoose =require("mongoose")
-const path=require("path")
-App.use(express.static(path.join(__dirname+"/public")))
 App.use(bodyParser.urlencoded({extended:true,limit:"50mb"}))
 App.use(bodyParser.json({limit:"50mb"}));
 require("dotenv").config()
