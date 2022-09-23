@@ -23,6 +23,6 @@ App.use("/user",useRouter)
 App.use("/admin",adminRouter)
 App.use("/goods",GoodRouter)
 const PORT =process.env.PORT || 300
-App.listen(PORT,()=>{
+App.listen(PORT||300,()=>{
     console.log(`App is listen on port  ${PORT} `)
 })

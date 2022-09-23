@@ -11,7 +11,7 @@ const GetGoods = (req, res, next) => {
         Product.find({}, (err, result) => {
             if (err) { res.send({ message: "error", status: false }); }
             else {
-                res.send({ goods: result, status: false })
+                res.send({ goods: result, status: true })
             }
         })
     } catch (ex) {
