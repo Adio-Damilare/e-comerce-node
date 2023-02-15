@@ -22,6 +22,9 @@ mongoose.connect(Uri,{
 App.use("/user",useRouter)
 App.use("/admin",adminRouter)
 App.use("/goods",GoodRouter)
+App.get("/",(req,res)=>{
+    res.send({message:"Oluwadamilare E-commerce project"})
+})
 const PORT =process.env.PORT || 300
 App.listen(PORT||300,()=>{
     console.log(`App is listen on port  ${PORT} `)
